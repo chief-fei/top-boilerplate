@@ -1,0 +1,116 @@
+{
+  "name": "top-boilerplate",
+  "displayName": "Top Boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A modern VSCode extension boilerplate with Vite",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "vscode",
+    "extension",
+    "boilerplate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/top-boilerplate.git"
+  },
+  "license": "MIT",
+  "publisher": "your-publisher-name",
+  "main": "./out/extension.js",
+  "scripts": {
+    "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
+    "clean": "rimraf out",
+    "compile": "vite build",
+    "dev": "vite build --watch",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "lint:fix": "prettier --write . && eslint --fix .",
+    "package": "vite build --mode production",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "test": "vscode-test",
+    "vscode:prepublish": "pnpm run compile",
+    "watch": "vite build --watch"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "top-boilerplate.createReactComponent",
+        "title": "创建 React 组件"
+      },
+      {
+        "command": "top-boilerplate.createVueComponent",
+        "title": "创建 Vue 组件"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "top-boilerplate.createComponent",
+          "group": "1_modification"
+        }
+      ],
+      "top-boilerplate.createComponent": [
+        {
+          "command": "top-boilerplate.createReactComponent",
+          "group": "1_modification"
+        },
+        {
+          "command": "top-boilerplate.createVueComponent",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "top-boilerplate.createComponent",
+        "label": "创建组件",
+        "icon": "$(file-add)"
+      }
+    ]
+  },
+  "activationEvents": [],
+  "commitlint": {
+    "extends": [
+      "ali"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint --fix",
+    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write"
+  },
+  "prettier": "prettier-config-ali",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "~20.17.30",
+    "@types/vscode": "^1.99.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.1",
+    "commitlint-config-ali": "^1.1.0",
+    "eslint": "^9.24.0",
+    "eslint-config-ali": "^16.1.1",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "glob": "^10.4.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "node-plop": "^0.32.0",
+    "prettier": "^3.5.3",
+    "prettier-config-ali": "^1.3.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.5"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "vscode": "^1.96.0"
+  }
+}
