@@ -21,19 +21,14 @@
   "main": "./out/extension.js",
   "scripts": {
     "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
-    "clean": "rimraf out",
-    "compile": "vite build",
+    "build": "vite build",
     "dev": "vite build --watch",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "eslint .",
     "lint:fix": "prettier --write . && eslint --fix .",
-    "package": "vite build --mode production",
     "prepare": "husky",
-    "preview": "vite preview",
-    "pretest": "pnpm run compile && pnpm run lint",
     "test": "vscode-test",
-    "vscode:prepublish": "pnpm run compile",
-    "watch": "vite build --watch"
+    "preinstall": "npx only-allow pnpm"
   },
   "contributes": {
     "commands": [
