@@ -1,9 +1,9 @@
 {
   "name": "top-boilerplate",
-  "displayName": "Top Boilerplate",
+  "displayName": "quick-rv-boilerplate",
   "version": "0.0.1",
   "private": true,
-  "description": "A modern VSCode extension boilerplate with Vite",
+  "description": "quick create react component or vue component with vscode extension",
   "categories": [
     "Other"
   ],
@@ -17,7 +17,7 @@
     "url": "https://github.com/your-username/top-boilerplate.git"
   },
   "license": "MIT",
-  "publisher": "your-publisher-name",
+  "publisher": "chief",
   "main": "./out/extension.js",
   "scripts": {
     "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
